@@ -1,5 +1,5 @@
-const paths = require('./paths')
 const PugPlugin = require('pug-plugin')
+const paths = require('./paths')
 
 module.exports = {
   stats: 'minimal',
