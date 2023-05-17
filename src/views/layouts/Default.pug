@@ -1,0 +1,44 @@
+//- External variables
+block variables
+
+doctype html
+html(lang='zh-Hant')
+  head
+    //- Meta
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(property='description' content='Hello world')
+
+    //- Favicons
+    //- link(rel='icon' href=require('Images/favicons/favicon.svg') type='image/svg+xml' sizes='any')
+    //- link(rel='icon' href=require('Images/favicons/favicon-32px.png') type='image/png' sizes='32x32')
+
+    //- Page title
+    title= title
+
+    //- Local Fonts
+    link(rel="preload" as="font" href=require('Fonts/IBMPlexSans-Bold.woff2') type="font/woff2" crossorigin)
+    link(rel="preload" as="font" href=require('Fonts/IBMPlexSans-Medium.woff2') type="font/woff2" crossorigin)
+    link(rel="preload" as="font" href=require('Fonts/IBMPlexSans-Regular.woff2') type="font/woff2" crossorigin)
+
+    //- Google fonts
+    link(href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="preload" as="style")
+    link(href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'")
+    noscript: link(href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet")
+
+    //- Page styles
+    block style
+      //- common used styles
+      link(rel='stylesheet' href=require('Styles/main.sass'))
+
+    //- Additional head block, e.g. for preload scripts in head
+    block head
+      script(src=require('Scripts/common.js') defer)
+
+      //- Demo how to inline CSS
+      //- style=require('Styles/inline-styles.scss?inline')
+  body
+    block content
+    //- Page scripts
+    block script
+      //- script(src=require('Scripts/common2.js'))

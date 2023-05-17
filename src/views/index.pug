@@ -1,0 +1,40 @@
+extends Views/layouts/Default.pug
+
+//- set variables used in layout
+block variables
+  - const title = 'Home'
+
+//- add page specifically styles
+append style
+  link(href=require('Styles/home.sass') rel='stylesheet')
+
+//- add page specifically scripts
+append script
+  script(src=require('Scripts/home.js') defer)
+
+block content
+  include ./component/Nav.pug
+  .container
+    h1 Hello Webpack 5 設定
+    h2.is-text-green Images
+    p 如果 svg 檔案大小 > 4 KB，會完整 build 出來
+    div(style="width: 600px")
+      img(src=require('Images/topography.svg'))
+    div(style="width: 200px")
+      img(src=require('Images/amazon-fill.svg'))
+    h2.is-text-green Lazy loading
+    img.lazy(data-src="https://picsum.photos/id/1/900/496" width="900" height="496")
+    img.lazy(data-src="https://picsum.photos/id/10/900/496" width="900" height="496")
+    img.lazy(data-src="https://picsum.photos/id/20/900/496" width="900" height="496")
+    img.lazy(data-src="https://picsum.photos/id/30/900/496" width="900" height="496")
+    img.lazy(data-src="https://picsum.photos/id/40/900/496" width="900" height="496")
+    img.lazy(data-src="https://picsum.photos/id/50/900/496" width="900" height="496")
+    img.lazy(data-src="https://picsum.photos/id/60/900/496" width="900" height="496")
+    div(style="width: 100%")
+      picture
+        source(
+          media="(min-width: 320px) and (max-width: 1024px)"
+          data-srcset="https://picsum.photos/id/70/450/450")
+        img.lazy(
+          alt="Test"
+          data-src="https://picsum.photos/id/72/900/496")
