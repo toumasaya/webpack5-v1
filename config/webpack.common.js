@@ -1,5 +1,8 @@
 const PugPlugin = require('pug-plugin')
+const path = require('path')
 const paths = require('./paths')
+
+const sourceDirname = 'src/'
 
 module.exports = {
   stats: 'minimal',
@@ -68,7 +71,12 @@ module.exports = {
         include: /assets[\\/]images/, // images from `assets/images` directory only, match posix and win paths
         generator: {
           // output filename of images
-          filename: 'images/[name].[hash:5][ext]',
+          // filename: 'images/[name].[hash:5][ext]',
+          filename: (pathData) => {
+            const { dir } = path.parse(pathData.filename) // the filename is relative path by project
+            const outputPath = dir.replace(sourceDirname, '')
+            return outputPath + '/[name][ext]'
+          },
         },
       },
       // inline images: png or svg icons with size < 4 KB
