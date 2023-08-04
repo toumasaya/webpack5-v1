@@ -2,6 +2,10 @@ const paths = require('./paths')
 
 module.exports = {
   mode: 'development',
+  // Compilation fail on module contents change #77
+  // https://github.com/webdiscus/pug-plugin/issues/77
+  // workround: https://github.com/webdiscus/pug-plugin/issues/77#issuecomment-1556288370
+  cache: false,
   devtool: 'inline-source-map',
   devServer: {
     static: {
